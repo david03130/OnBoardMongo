@@ -12,13 +12,17 @@ namespace MongoDataAccess
     {
         public MongoAccess(string url, string databaseName, string collectionName)
         {
-            Client = new MongoClient(url);
-            DataBase = Client.GetDatabase(databaseName);
-            ItemCollection = DataBase.GetCollection<T>(collectionName);
+            DbConfig = new MongoDbConfig(url, databaseName);
+            ItemCollection = DbConfig.DataBase.GetCollection<T>(collectionName);
         }
 
-        public MongoClient Client { get; set; }
-        public IMongoDatabase DataBase { get; set; }
+        public MongoAccess(MongoDbConfig dbConfig, string collectionName)
+        {
+            DbConfig = dbConfig;
+            ItemCollection = DbConfig.DataBase.GetCollection<T>(collectionName);
+        }
+
+        public MongoDbConfig DbConfig { get; set; }
         public IMongoCollection<T> ItemCollection { get; set; }
 
         public List<T> SelectAll()

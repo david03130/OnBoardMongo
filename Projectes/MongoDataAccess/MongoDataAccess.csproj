@@ -149,6 +149,7 @@
   <ItemGroup>
     <Compile Include="IMongoDataObject.cs" />
     <Compile Include="MongoAccess.cs" />
+    <Compile Include="MongoDbConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

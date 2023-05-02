@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MongoDataAccess;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using StarWarsModels;
 
 namespace OnBoardTree
@@ -17,14 +19,31 @@ namespace OnBoardTree
         public frmTree()
         {
             InitializeComponent();
-            Test();
+
+            dbConfig = new MongoDbConfig(dbUrl, dbName);
+
+            LoadDropdown();
+            LoadTreeView();
         }
 
-        public void Test()
+        private const string dbUrl = "mongodb://localhost:27017";
+        private const string dbName = "StarWars";
+        private MongoDbConfig dbConfig;
+
+        private void LoadDropdown()
         {
-            MongoAccess<Planet> access = new MongoAccess<Planet>("mongodb://localhost:27017", "StarWars", "Planets");
-            //List<Planet> test = access.SelectAll();
-            Planet planet = access.SelectById("62583c245c116fed874696f5");
+            cmb_Collections.Items.Add("");
+
+            foreach (var item in dbConfig.DataBase.ListCollectionsAsync().Result.ToListAsync().Result)
+            {
+                cmb_Collections.Items.Add(item["name"].AsString);
+            }
+        }
+
+        private void LoadTreeView()
+        {
+            MongoAccess<Planet> planets = new MongoAccess<Planet>(dbConfig, "Planets");
+            planets.SelectAll().ForEach(x => tree_Documents.Nodes.Add(x.name));
         }
     }
 }

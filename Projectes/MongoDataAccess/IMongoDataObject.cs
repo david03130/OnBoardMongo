@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace MongoDataAccess
 {
+    // Amb aquesta interficie podrem accedir al id a l'hora de fer una cerca en MongoAccess.
     public interface IMongoDataObject
     {
         [BsonId]
