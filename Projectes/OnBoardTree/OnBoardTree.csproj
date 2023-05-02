@@ -152,6 +152,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DetailForms\frmPlanetDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetailForms\frmPlanetDetails.Designer.cs">
+      <DependentUpon>frmPlanetDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTree.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +166,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DetailForms\frmPlanetDetails.resx">
+      <DependentUpon>frmPlanetDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmTree.resx">
       <DependentUpon>frmTree.cs</DependentUpon>
     </EmbeddedResource>
