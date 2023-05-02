@@ -42,6 +42,7 @@ namespace OnBoardTree
             this.tree_Documents.Name = "tree_Documents";
             this.tree_Documents.Size = new System.Drawing.Size(230, 488);
             this.tree_Documents.TabIndex = 0;
+            this.tree_Documents.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tree_Documents_AfterSelect);
             // 
             // cmb_Collections
             // 

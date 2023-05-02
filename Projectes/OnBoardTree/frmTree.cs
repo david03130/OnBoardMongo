@@ -16,6 +16,10 @@ namespace OnBoardTree
 {
     public partial class frmTree : Form
     {
+        private const string dbUrl = "mongodb://localhost:27017";
+        private const string dbName = "StarWars";
+        private MongoDbConfig dbConfig;
+
         public frmTree()
         {
             InitializeComponent();
@@ -28,14 +32,9 @@ namespace OnBoardTree
         enum CollectionName
         {
             Filiations,
-            HyperspaceRoutes,
             Planets,
             Regions
         }
-
-        private const string dbUrl = "mongodb://localhost:27017";
-        private const string dbName = "StarWars";
-        private MongoDbConfig dbConfig;
 
         private void LoadCollectionsDropdown()
         {
@@ -52,26 +51,21 @@ namespace OnBoardTree
             if (collName == CollectionName.Filiations)
             {
                 MongoAccess<Filiations> filiations = new MongoAccess<Filiations>(dbConfig, CollectionName.Filiations.ToString());
-                filiations.SelectAll().ForEach(x => tree_Documents.Nodes.Add(x.description));
-            }
-            else if (collName == CollectionName.HyperspaceRoutes)
-            {
-                MongoAccess<HyperspaceRoutes> hyperspaceRoutes = new MongoAccess<HyperspaceRoutes>(dbConfig, CollectionName.HyperspaceRoutes.ToString());
-                hyperspaceRoutes.SelectAll().ForEach(x => tree_Documents.Nodes.Add(x.nameRoute));
+                filiations.SelectAll().ForEach(x => tree_Documents.Nodes.Add(x.Id.ToString(), x.description));
             }
             else if (collName == CollectionName.Regions)
             {
                 MongoAccess<StarWarsModels.Region> regions = new MongoAccess<StarWarsModels.Region>(dbConfig, CollectionName.Regions.ToString());
-                regions.SelectAll().ForEach(x => tree_Documents.Nodes.Add(x.nameRegion));
+                regions.SelectAll().ForEach(x => tree_Documents.Nodes.Add(x.Id.ToString(), x.nameRegion));
             }
             else if (collName == CollectionName.Planets)
             {
                 MongoAccess<Planet> planets = new MongoAccess<Planet>(dbConfig, CollectionName.Planets.ToString());
-                planets.SelectAll().ForEach(x => tree_Documents.Nodes.Add(x.name));
+                planets.SelectAll().ForEach(x => tree_Documents.Nodes.Add(x.Id.ToString(), x.name));
             }
         }
 
-
+        #region Designer Events
         private void cmb_Collections_SelectedIndexChanged(object sender, EventArgs e)
         {
             tree_Documents.Nodes.Clear();
@@ -80,5 +74,12 @@ namespace OnBoardTree
                 LoadLateralTreeView((CollectionName)Enum.Parse(typeof(CollectionName), cmb_Collections.SelectedItem.ToString()));
             }
         }
+
+        private void tree_Documents_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            
+        }
+
+        #endregion
     }
 }
