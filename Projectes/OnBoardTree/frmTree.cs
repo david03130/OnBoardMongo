@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MongoDataAccess;
+using StarWarsModels;
 
 namespace OnBoardTree
 {
@@ -15,6 +17,14 @@ namespace OnBoardTree
         public frmTree()
         {
             InitializeComponent();
+            Test();
+        }
+
+        public void Test()
+        {
+            MongoAccess<Planet> access = new MongoAccess<Planet>("mongodb://localhost:27017", "StarWars", "Planets");
+            //List<Planet> test = access.SelectAll();
+            Planet planet = access.SelectById("62583c245c116fed874696f5");
         }
     }
 }

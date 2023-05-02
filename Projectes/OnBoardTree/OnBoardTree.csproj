@@ -79,5 +79,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MongoDataAccess\MongoDataAccess.csproj">
+      <Project>{83448887-ac7c-4119-9977-209472b4aea6}</Project>
+      <Name>MongoDataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StarWarsModels\StarWarsModels.csproj">
+      <Project>{FC130391-DF50-4D60-A9DA-E83E905975DD}</Project>
+      <Name>StarWarsModels</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
