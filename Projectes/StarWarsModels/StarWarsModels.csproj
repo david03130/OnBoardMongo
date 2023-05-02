@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Planet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Region.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
