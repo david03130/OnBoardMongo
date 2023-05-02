@@ -11,6 +11,7 @@ using MongoDataAccess;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using StarWarsModels;
+using OnBoardTree.DetailForms;
 
 namespace OnBoardTree
 {
@@ -77,7 +78,12 @@ namespace OnBoardTree
 
         private void tree_Documents_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            
+            frmPlanetDetails test = new frmPlanetDetails();
+            test.TopLevel = false;
+            pnl_Details.Controls.Add(test);
+            test.WindowState = FormWindowState.Maximized;
+            test.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            test.Show();
         }
 
         #endregion
