@@ -53,6 +53,7 @@ namespace OnBoardTree
             this.cmb_Collections.Name = "cmb_Collections";
             this.cmb_Collections.Size = new System.Drawing.Size(230, 24);
             this.cmb_Collections.TabIndex = 1;
+            this.cmb_Collections.SelectedIndexChanged += new System.EventHandler(this.cmb_Collections_SelectedIndexChanged);
             // 
             // pnl_Details
             // 
