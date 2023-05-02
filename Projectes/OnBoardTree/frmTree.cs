@@ -12,23 +12,26 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using StarWarsModels;
 using OnBoardTree.DetailForms;
+using System.Configuration;
 
 namespace OnBoardTree
 {
     public partial class frmTree : Form
     {
-        private const string dbUrl = "mongodb://localhost:27017";
-        private const string dbName = "StarWars";
         private MongoDbConfig dbConfig;
 
         public frmTree()
         {
             InitializeComponent();
 
+            string dbUrl = ConfigurationManager.AppSettings["MongoConnectionString"].ToString();
+            string dbName = ConfigurationManager.AppSettings["MongoDataBaseName"].ToString();
             dbConfig = new MongoDbConfig(dbUrl, dbName);
 
             LoadCollectionsDropdown();
         }
+
+        private IDetailForm currentDetailForm;
 
         enum CollectionName
         {
@@ -66,24 +69,49 @@ namespace OnBoardTree
             }
         }
 
+        private void LoadDetailForm(CollectionName collName)
+        {
+            Form form;
+
+            pnl_Details.Controls.Clear();
+
+            if (collName == CollectionName.Filiations)
+            {
+                form = new frmPlanetDetails();
+            }
+            else if (collName == CollectionName.Regions)
+            {
+                form = new frmPlanetDetails();
+            }
+            else
+            {
+                form = new frmPlanetDetails();
+            }
+
+            form.TopLevel = false;
+            pnl_Details.Controls.Add(form);
+            form.WindowState = FormWindowState.Maximized;
+            form.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            form.Show();
+
+            currentDetailForm = (IDetailForm)form;
+        }
+
         #region Designer Events
         private void cmb_Collections_SelectedIndexChanged(object sender, EventArgs e)
         {
             tree_Documents.Nodes.Clear();
             if (cmb_Collections.SelectedItem.ToString() != string.Empty)
             {
-                LoadLateralTreeView((CollectionName)Enum.Parse(typeof(CollectionName), cmb_Collections.SelectedItem.ToString()));
+                CollectionName selectedCollection = (CollectionName)Enum.Parse(typeof(CollectionName), cmb_Collections.SelectedItem.ToString());
+                LoadLateralTreeView(selectedCollection);
+                LoadDetailForm(selectedCollection);
             }
         }
 
         private void tree_Documents_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            frmPlanetDetails test = new frmPlanetDetails();
-            test.TopLevel = false;
-            pnl_Details.Controls.Add(test);
-            test.WindowState = FormWindowState.Maximized;
-            test.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            test.Show();
+            currentDetailForm.LoadData(tree_Documents.SelectedNode.Name);
         }
 
         #endregion
