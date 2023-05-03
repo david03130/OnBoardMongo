@@ -41,7 +41,7 @@ namespace OnBoardTree
             this.tree_Documents.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tree_Documents.Location = new System.Drawing.Point(19, 55);
             this.tree_Documents.Name = "tree_Documents";
-            this.tree_Documents.Size = new System.Drawing.Size(230, 488);
+            this.tree_Documents.Size = new System.Drawing.Size(230, 540);
             this.tree_Documents.TabIndex = 0;
             this.tree_Documents.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tree_Documents_AfterSelect);
             // 
@@ -65,14 +65,14 @@ namespace OnBoardTree
             this.pnl_Details.BackColor = System.Drawing.SystemColors.ControlLight;
             this.pnl_Details.Location = new System.Drawing.Point(275, 19);
             this.pnl_Details.Name = "pnl_Details";
-            this.pnl_Details.Size = new System.Drawing.Size(792, 524);
+            this.pnl_Details.Size = new System.Drawing.Size(811, 576);
             this.pnl_Details.TabIndex = 2;
             // 
             // frmTree
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1088, 559);
+            this.ClientSize = new System.Drawing.Size(1107, 611);
             this.Controls.Add(this.pnl_Details);
             this.Controls.Add(this.cmb_Collections);
             this.Controls.Add(this.tree_Documents);
