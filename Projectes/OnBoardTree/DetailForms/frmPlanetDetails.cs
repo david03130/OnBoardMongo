@@ -34,6 +34,7 @@ namespace OnBoardTree.DetailForms
             Planet planet = bbdd.SelectById(id);
 
             lbl_Name.Text = planet.name;
+            lbl_Natives.Text = planet.natives;
         }
     }
 }

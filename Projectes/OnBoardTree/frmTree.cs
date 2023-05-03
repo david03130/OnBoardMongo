@@ -75,6 +75,7 @@ namespace OnBoardTree
 
             pnl_Details.Controls.Clear();
 
+            // TODO: Cambiar esto y poner los formularios pertinentes.
             if (collName == CollectionName.Filiations)
             {
                 form = new frmPlanetDetails();

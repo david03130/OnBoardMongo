@@ -38,6 +38,7 @@ namespace OnBoardTree
             // 
             this.tree_Documents.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.tree_Documents.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tree_Documents.Location = new System.Drawing.Point(19, 55);
             this.tree_Documents.Name = "tree_Documents";
             this.tree_Documents.Size = new System.Drawing.Size(230, 488);
