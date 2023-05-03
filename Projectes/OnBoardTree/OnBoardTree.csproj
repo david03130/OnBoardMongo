@@ -153,6 +153,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DetailForms\frmFiliationsDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetailForms\frmFiliationsDetails.Designer.cs">
+      <DependentUpon>frmFiliationsDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="DetailForms\frmRegionsDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +180,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DetailForms\frmFiliationsDetails.resx">
+      <DependentUpon>frmFiliationsDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DetailForms\frmRegionsDetails.resx">
       <DependentUpon>frmRegionsDetails.cs</DependentUpon>
     </EmbeddedResource>

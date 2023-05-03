@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace StarWarsModels
 {
-    public class Filiations : IMongoDataObject
+    public class Filiation : IMongoDataObject
     {
         [BsonId]
         public ObjectId Id { get; set; }
