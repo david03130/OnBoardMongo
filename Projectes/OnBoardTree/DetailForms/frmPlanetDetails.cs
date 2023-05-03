@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,8 @@ namespace OnBoardTree.DetailForms
     {
         private readonly MongoDbConfig dbConfig;
         private readonly MongoAccess<Planet> bbdd;
+        // La ruta de la
+        private readonly string rutaDirImatges = Directory.GetCurrentDirectory() + "\\..\\..\\..\\..\\Imatges\\";
 
         public frmPlanetDetails()
         {
@@ -30,6 +33,7 @@ namespace OnBoardTree.DetailForms
 
         public void CarregarDades(string id)
         {
+            lbl_ErrorImatge.Visible = false;
             // Carregar les dades a partir del id.
             Planet planet = bbdd.SelectById(id);
 
@@ -45,6 +49,19 @@ namespace OnBoardTree.DetailForms
             foreach (var item in planet.hyperspaceRoute.route)
             {
                 list_HyperspaceRoutes.Items.Add(item);
+            }
+
+            try
+            {
+                string nomImatge = File.Exists($"{rutaDirImatges}{planet.name}.jpg") ?
+                                   $"{rutaDirImatges}{planet.name}.jpg" :
+                                   $"{rutaDirImatges}{planet.name}.png";
+
+                pic_PlanetImage.Image = Image.FromFile(nomImatge);
+            }
+            catch (Exception)
+            {
+                lbl_ErrorImatge.Visible = true;
             }
         }
     }
