@@ -31,9 +31,9 @@ namespace OnBoardTree
             CarregarDropdownCollections();
         }
 
-        private IFormDetall fromDetallActual;
+        private IFormDetall formDetallActual;
 
-        enum NomsColleccions
+        enum NomsColeccions
         {
             Filiations,
             Planets,
@@ -50,39 +50,39 @@ namespace OnBoardTree
             }
         }
 
-        private void CarregarTreeviewLateral(NomsColleccions collName)
+        private void CarregarTreeviewLateral(NomsColeccions selectedCol)
         {
-            if (collName == NomsColleccions.Filiations)
+            if (selectedCol == NomsColeccions.Filiations)
             {
-                MongoAccess<Filiations> filiations = new MongoAccess<Filiations>(dbConfig, NomsColleccions.Filiations.ToString());
+                MongoAccess<Filiations> filiations = new MongoAccess<Filiations>(dbConfig, NomsColeccions.Filiations.ToString());
                 filiations.SelectAll().ForEach(x => tree_Documents.Nodes.Add(x.Id.ToString(), x.description));
             }
-            else if (collName == NomsColleccions.Regions)
+            else if (selectedCol == NomsColeccions.Regions)
             {
-                MongoAccess<StarWarsModels.Region> regions = new MongoAccess<StarWarsModels.Region>(dbConfig, NomsColleccions.Regions.ToString());
+                MongoAccess<StarWarsModels.Region> regions = new MongoAccess<StarWarsModels.Region>(dbConfig, NomsColeccions.Regions.ToString());
                 regions.SelectAll().ForEach(x => tree_Documents.Nodes.Add(x.Id.ToString(), x.nameRegion));
             }
-            else if (collName == NomsColleccions.Planets)
+            else if (selectedCol == NomsColeccions.Planets)
             {
-                MongoAccess<Planet> planets = new MongoAccess<Planet>(dbConfig, NomsColleccions.Planets.ToString());
+                MongoAccess<Planet> planets = new MongoAccess<Planet>(dbConfig, NomsColeccions.Planets.ToString());
                 planets.SelectAll().ForEach(x => tree_Documents.Nodes.Add(x.Id.ToString(), x.name));
             }
         }
 
-        private void CarregarFormDetall(NomsColleccions collName)
+        private void CarregarFormDetall(NomsColeccions selectedCol)
         {
             Form form;
 
             pnl_Details.Controls.Clear();
 
             // TODO: Cambiar esto y poner los formularios pertinentes.
-            if (collName == NomsColleccions.Filiations)
+            if (selectedCol == NomsColeccions.Filiations)
             {
                 form = new frmPlanetDetails();
             }
-            else if (collName == NomsColleccions.Regions)
+            else if (selectedCol == NomsColeccions.Regions)
             {
-                form = new frmPlanetDetails();
+                form = new frmRegionsDetails();
             }
             else
             {
@@ -95,7 +95,7 @@ namespace OnBoardTree
             form.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             form.Show();
 
-            fromDetallActual = (IFormDetall)form;
+            formDetallActual = (IFormDetall)form;
         }
 
         #region Designer Events
@@ -104,7 +104,7 @@ namespace OnBoardTree
             tree_Documents.Nodes.Clear();
             if (cmb_Collections.SelectedItem.ToString() != string.Empty)
             {
-                NomsColleccions selectedCollection = (NomsColleccions)Enum.Parse(typeof(NomsColleccions), cmb_Collections.SelectedItem.ToString());
+                NomsColeccions selectedCollection = (NomsColeccions)Enum.Parse(typeof(NomsColeccions), cmb_Collections.SelectedItem.ToString());
                 CarregarTreeviewLateral(selectedCollection);
                 CarregarFormDetall(selectedCollection);
             }
@@ -112,7 +112,7 @@ namespace OnBoardTree
 
         private void tree_Documents_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            fromDetallActual.CarregarDades(tree_Documents.SelectedNode.Name);
+            formDetallActual.CarregarDades(tree_Documents.SelectedNode.Name);
         }
 
         #endregion
