@@ -40,6 +40,12 @@ namespace OnBoardTree.DetailForms
             lbl_Latitude.Text = planet.situation.lat;
             lbl_Persecs.Text = planet.situation.parsecs;
             lbl_Sector.Text = planet.sector;
+
+            list_HyperspaceRoutes.Items.Clear();
+            foreach (var item in planet.hyperspaceRoute.route)
+            {
+                list_HyperspaceRoutes.Items.Add(item);
+            }
         }
     }
 }

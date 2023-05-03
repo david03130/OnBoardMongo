@@ -37,17 +37,21 @@ namespace OnBoardTree.DetailForms
             this.lbl_NameTitle = new System.Windows.Forms.Label();
             this.lbl_Name = new System.Windows.Forms.Label();
             this.grp_Position = new System.Windows.Forms.GroupBox();
+            this.lbl_SectorTitle = new System.Windows.Forms.Label();
             this.lbl_PersecsTitle = new System.Windows.Forms.Label();
+            this.lbl_Sector = new System.Windows.Forms.Label();
             this.lbl_LatitudeTitle = new System.Windows.Forms.Label();
             this.lbl_Persecs = new System.Windows.Forms.Label();
             this.lbl_Latitude = new System.Windows.Forms.Label();
             this.lbl_LongitudeTitle = new System.Windows.Forms.Label();
             this.lbl_Longitude = new System.Windows.Forms.Label();
-            this.lbl_Sector = new System.Windows.Forms.Label();
-            this.lbl_SectorTitle = new System.Windows.Forms.Label();
             this.grp_Hyperspace = new System.Windows.Forms.GroupBox();
+            this.list_HyperspaceRoutes = new System.Windows.Forms.ListBox();
+            this.pic_PlanetImage = new System.Windows.Forms.PictureBox();
             this.grp_GeneralInfo.SuspendLayout();
             this.grp_Position.SuspendLayout();
+            this.grp_Hyperspace.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_PlanetImage)).BeginInit();
             this.SuspendLayout();
             // 
             // grp_GeneralInfo
@@ -60,7 +64,7 @@ namespace OnBoardTree.DetailForms
             this.grp_GeneralInfo.Controls.Add(this.lbl_Name);
             this.grp_GeneralInfo.Location = new System.Drawing.Point(12, 12);
             this.grp_GeneralInfo.Name = "grp_GeneralInfo";
-            this.grp_GeneralInfo.Size = new System.Drawing.Size(262, 162);
+            this.grp_GeneralInfo.Size = new System.Drawing.Size(306, 162);
             this.grp_GeneralInfo.TabIndex = 0;
             this.grp_GeneralInfo.TabStop = false;
             this.grp_GeneralInfo.Text = "General Info";
@@ -135,12 +139,22 @@ namespace OnBoardTree.DetailForms
             this.grp_Position.Controls.Add(this.lbl_Latitude);
             this.grp_Position.Controls.Add(this.lbl_LongitudeTitle);
             this.grp_Position.Controls.Add(this.lbl_Longitude);
-            this.grp_Position.Location = new System.Drawing.Point(299, 12);
+            this.grp_Position.Location = new System.Drawing.Point(336, 12);
             this.grp_Position.Name = "grp_Position";
-            this.grp_Position.Size = new System.Drawing.Size(262, 162);
+            this.grp_Position.Size = new System.Drawing.Size(308, 162);
             this.grp_Position.TabIndex = 4;
             this.grp_Position.TabStop = false;
             this.grp_Position.Text = "Position";
+            // 
+            // lbl_SectorTitle
+            // 
+            this.lbl_SectorTitle.AutoSize = true;
+            this.lbl_SectorTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_SectorTitle.Location = new System.Drawing.Point(13, 127);
+            this.lbl_SectorTitle.Name = "lbl_SectorTitle";
+            this.lbl_SectorTitle.Size = new System.Drawing.Size(50, 16);
+            this.lbl_SectorTitle.TabIndex = 3;
+            this.lbl_SectorTitle.Text = "Sector:";
             // 
             // lbl_PersecsTitle
             // 
@@ -151,6 +165,16 @@ namespace OnBoardTree.DetailForms
             this.lbl_PersecsTitle.Size = new System.Drawing.Size(57, 16);
             this.lbl_PersecsTitle.TabIndex = 3;
             this.lbl_PersecsTitle.Text = "Filiation:";
+            // 
+            // lbl_Sector
+            // 
+            this.lbl_Sector.AutoSize = true;
+            this.lbl_Sector.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Sector.Location = new System.Drawing.Point(115, 127);
+            this.lbl_Sector.Name = "lbl_Sector";
+            this.lbl_Sector.Size = new System.Drawing.Size(47, 16);
+            this.lbl_Sector.TabIndex = 2;
+            this.lbl_Sector.Text = "Sector";
             // 
             // lbl_LatitudeTitle
             // 
@@ -202,40 +226,47 @@ namespace OnBoardTree.DetailForms
             this.lbl_Longitude.TabIndex = 0;
             this.lbl_Longitude.Text = "Longitude";
             // 
-            // lbl_Sector
-            // 
-            this.lbl_Sector.AutoSize = true;
-            this.lbl_Sector.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Sector.Location = new System.Drawing.Point(115, 127);
-            this.lbl_Sector.Name = "lbl_Sector";
-            this.lbl_Sector.Size = new System.Drawing.Size(47, 16);
-            this.lbl_Sector.TabIndex = 2;
-            this.lbl_Sector.Text = "Sector";
-            // 
-            // lbl_SectorTitle
-            // 
-            this.lbl_SectorTitle.AutoSize = true;
-            this.lbl_SectorTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_SectorTitle.Location = new System.Drawing.Point(13, 127);
-            this.lbl_SectorTitle.Name = "lbl_SectorTitle";
-            this.lbl_SectorTitle.Size = new System.Drawing.Size(50, 16);
-            this.lbl_SectorTitle.TabIndex = 3;
-            this.lbl_SectorTitle.Text = "Sector:";
-            // 
             // grp_Hyperspace
             // 
-            this.grp_Hyperspace.Location = new System.Drawing.Point(12, 193);
+            this.grp_Hyperspace.Controls.Add(this.list_HyperspaceRoutes);
+            this.grp_Hyperspace.Location = new System.Drawing.Point(12, 184);
             this.grp_Hyperspace.Name = "grp_Hyperspace";
-            this.grp_Hyperspace.Size = new System.Drawing.Size(549, 162);
+            this.grp_Hyperspace.Size = new System.Drawing.Size(632, 165);
             this.grp_Hyperspace.TabIndex = 0;
             this.grp_Hyperspace.TabStop = false;
             this.grp_Hyperspace.Text = "HyperSpace Routes";
+            // 
+            // list_HyperspaceRoutes
+            // 
+            this.list_HyperspaceRoutes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.list_HyperspaceRoutes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.list_HyperspaceRoutes.FormattingEnabled = true;
+            this.list_HyperspaceRoutes.ItemHeight = 16;
+            this.list_HyperspaceRoutes.Location = new System.Drawing.Point(16, 29);
+            this.list_HyperspaceRoutes.Name = "list_HyperspaceRoutes";
+            this.list_HyperspaceRoutes.Size = new System.Drawing.Size(595, 116);
+            this.list_HyperspaceRoutes.TabIndex = 0;
+            // 
+            // pic_PlanetImage
+            // 
+            this.pic_PlanetImage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.pic_PlanetImage.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.pic_PlanetImage.Location = new System.Drawing.Point(28, 366);
+            this.pic_PlanetImage.Name = "pic_PlanetImage";
+            this.pic_PlanetImage.Size = new System.Drawing.Size(595, 239);
+            this.pic_PlanetImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_PlanetImage.TabIndex = 5;
+            this.pic_PlanetImage.TabStop = false;
             // 
             // frmPlanetDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(577, 505);
+            this.ClientSize = new System.Drawing.Size(656, 617);
+            this.Controls.Add(this.pic_PlanetImage);
             this.Controls.Add(this.grp_Position);
             this.Controls.Add(this.grp_Hyperspace);
             this.Controls.Add(this.grp_GeneralInfo);
@@ -246,6 +277,8 @@ namespace OnBoardTree.DetailForms
             this.grp_GeneralInfo.PerformLayout();
             this.grp_Position.ResumeLayout(false);
             this.grp_Position.PerformLayout();
+            this.grp_Hyperspace.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pic_PlanetImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -269,5 +302,7 @@ namespace OnBoardTree.DetailForms
         private System.Windows.Forms.Label lbl_SectorTitle;
         private System.Windows.Forms.Label lbl_Sector;
         private System.Windows.Forms.GroupBox grp_Hyperspace;
+        private System.Windows.Forms.ListBox list_HyperspaceRoutes;
+        private System.Windows.Forms.PictureBox pic_PlanetImage;
     }
 }
