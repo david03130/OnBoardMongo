@@ -159,7 +159,7 @@
     <Compile Include="DetailForms\frmPlanetDetails.Designer.cs">
       <DependentUpon>frmPlanetDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="DetailForms\IDetailForm.cs" />
+    <Compile Include="DetailForms\IFormDetall.cs" />
     <Compile Include="frmTree.cs">
       <SubType>Form</SubType>
     </Compile>

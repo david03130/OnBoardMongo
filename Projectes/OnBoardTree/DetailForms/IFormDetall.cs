@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace OnBoardTree.DetailForms
 {
-    public interface IDetailForm
+    public interface IFormDetall
     {
-        void LoadData(string id);
+        void CarregarDades(string id);
     }
 }

@@ -30,49 +30,50 @@ namespace OnBoardTree.DetailForms
         private void InitializeComponent()
         {
             this.grp_GeneralInfo = new System.Windows.Forms.GroupBox();
-            this.lbl_Name = new System.Windows.Forms.Label();
-            this.lbl_NameTitle = new System.Windows.Forms.Label();
+            this.lbl_FiliationTitle = new System.Windows.Forms.Label();
             this.lbl_NativesTitle = new System.Windows.Forms.Label();
+            this.lbl_Filiation = new System.Windows.Forms.Label();
             this.lbl_Natives = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbl_NameTitle = new System.Windows.Forms.Label();
+            this.lbl_Name = new System.Windows.Forms.Label();
+            this.grp_Position = new System.Windows.Forms.GroupBox();
+            this.lbl_PersecsTitle = new System.Windows.Forms.Label();
+            this.lbl_LatitudeTitle = new System.Windows.Forms.Label();
+            this.lbl_Persecs = new System.Windows.Forms.Label();
+            this.lbl_Latitude = new System.Windows.Forms.Label();
+            this.lbl_LongitudeTitle = new System.Windows.Forms.Label();
+            this.lbl_Longitude = new System.Windows.Forms.Label();
+            this.lbl_Sector = new System.Windows.Forms.Label();
+            this.lbl_SectorTitle = new System.Windows.Forms.Label();
+            this.grp_Hyperspace = new System.Windows.Forms.GroupBox();
             this.grp_GeneralInfo.SuspendLayout();
+            this.grp_Position.SuspendLayout();
             this.SuspendLayout();
             // 
             // grp_GeneralInfo
             // 
-            this.grp_GeneralInfo.Controls.Add(this.label4);
+            this.grp_GeneralInfo.Controls.Add(this.lbl_FiliationTitle);
             this.grp_GeneralInfo.Controls.Add(this.lbl_NativesTitle);
-            this.grp_GeneralInfo.Controls.Add(this.label3);
+            this.grp_GeneralInfo.Controls.Add(this.lbl_Filiation);
             this.grp_GeneralInfo.Controls.Add(this.lbl_Natives);
             this.grp_GeneralInfo.Controls.Add(this.lbl_NameTitle);
             this.grp_GeneralInfo.Controls.Add(this.lbl_Name);
             this.grp_GeneralInfo.Location = new System.Drawing.Point(12, 12);
             this.grp_GeneralInfo.Name = "grp_GeneralInfo";
-            this.grp_GeneralInfo.Size = new System.Drawing.Size(262, 193);
+            this.grp_GeneralInfo.Size = new System.Drawing.Size(262, 162);
             this.grp_GeneralInfo.TabIndex = 0;
             this.grp_GeneralInfo.TabStop = false;
             this.grp_GeneralInfo.Text = "General Info";
             // 
-            // lbl_Name
+            // lbl_FiliationTitle
             // 
-            this.lbl_Name.AutoSize = true;
-            this.lbl_Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Name.Location = new System.Drawing.Point(115, 31);
-            this.lbl_Name.Name = "lbl_Name";
-            this.lbl_Name.Size = new System.Drawing.Size(45, 16);
-            this.lbl_Name.TabIndex = 0;
-            this.lbl_Name.Text = "Name";
-            // 
-            // lbl_NameTitle
-            // 
-            this.lbl_NameTitle.AutoSize = true;
-            this.lbl_NameTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_NameTitle.Location = new System.Drawing.Point(13, 31);
-            this.lbl_NameTitle.Name = "lbl_NameTitle";
-            this.lbl_NameTitle.Size = new System.Drawing.Size(48, 16);
-            this.lbl_NameTitle.TabIndex = 1;
-            this.lbl_NameTitle.Text = "Name:";
+            this.lbl_FiliationTitle.AutoSize = true;
+            this.lbl_FiliationTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_FiliationTitle.Location = new System.Drawing.Point(13, 96);
+            this.lbl_FiliationTitle.Name = "lbl_FiliationTitle";
+            this.lbl_FiliationTitle.Size = new System.Drawing.Size(57, 16);
+            this.lbl_FiliationTitle.TabIndex = 3;
+            this.lbl_FiliationTitle.Text = "Filiation:";
             // 
             // lbl_NativesTitle
             // 
@@ -84,6 +85,16 @@ namespace OnBoardTree.DetailForms
             this.lbl_NativesTitle.TabIndex = 3;
             this.lbl_NativesTitle.Text = "Natives:";
             // 
+            // lbl_Filiation
+            // 
+            this.lbl_Filiation.AutoSize = true;
+            this.lbl_Filiation.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Filiation.Location = new System.Drawing.Point(115, 96);
+            this.lbl_Filiation.Name = "lbl_Filiation";
+            this.lbl_Filiation.Size = new System.Drawing.Size(54, 16);
+            this.lbl_Filiation.TabIndex = 2;
+            this.lbl_Filiation.Text = "Filiation";
+            // 
             // lbl_Natives
             // 
             this.lbl_Natives.AutoSize = true;
@@ -94,37 +105,147 @@ namespace OnBoardTree.DetailForms
             this.lbl_Natives.TabIndex = 2;
             this.lbl_Natives.Text = "Natives";
             // 
-            // label3
+            // lbl_NameTitle
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(115, 96);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 16);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Name";
+            this.lbl_NameTitle.AutoSize = true;
+            this.lbl_NameTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_NameTitle.Location = new System.Drawing.Point(13, 31);
+            this.lbl_NameTitle.Name = "lbl_NameTitle";
+            this.lbl_NameTitle.Size = new System.Drawing.Size(48, 16);
+            this.lbl_NameTitle.TabIndex = 1;
+            this.lbl_NameTitle.Text = "Name:";
             // 
-            // label4
+            // lbl_Name
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 96);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 16);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Name:";
+            this.lbl_Name.AutoSize = true;
+            this.lbl_Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Name.Location = new System.Drawing.Point(115, 31);
+            this.lbl_Name.Name = "lbl_Name";
+            this.lbl_Name.Size = new System.Drawing.Size(45, 16);
+            this.lbl_Name.TabIndex = 0;
+            this.lbl_Name.Text = "Name";
+            // 
+            // grp_Position
+            // 
+            this.grp_Position.Controls.Add(this.lbl_SectorTitle);
+            this.grp_Position.Controls.Add(this.lbl_PersecsTitle);
+            this.grp_Position.Controls.Add(this.lbl_Sector);
+            this.grp_Position.Controls.Add(this.lbl_LatitudeTitle);
+            this.grp_Position.Controls.Add(this.lbl_Persecs);
+            this.grp_Position.Controls.Add(this.lbl_Latitude);
+            this.grp_Position.Controls.Add(this.lbl_LongitudeTitle);
+            this.grp_Position.Controls.Add(this.lbl_Longitude);
+            this.grp_Position.Location = new System.Drawing.Point(299, 12);
+            this.grp_Position.Name = "grp_Position";
+            this.grp_Position.Size = new System.Drawing.Size(262, 162);
+            this.grp_Position.TabIndex = 4;
+            this.grp_Position.TabStop = false;
+            this.grp_Position.Text = "Position";
+            // 
+            // lbl_PersecsTitle
+            // 
+            this.lbl_PersecsTitle.AutoSize = true;
+            this.lbl_PersecsTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_PersecsTitle.Location = new System.Drawing.Point(13, 96);
+            this.lbl_PersecsTitle.Name = "lbl_PersecsTitle";
+            this.lbl_PersecsTitle.Size = new System.Drawing.Size(57, 16);
+            this.lbl_PersecsTitle.TabIndex = 3;
+            this.lbl_PersecsTitle.Text = "Filiation:";
+            // 
+            // lbl_LatitudeTitle
+            // 
+            this.lbl_LatitudeTitle.AutoSize = true;
+            this.lbl_LatitudeTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_LatitudeTitle.Location = new System.Drawing.Point(13, 63);
+            this.lbl_LatitudeTitle.Name = "lbl_LatitudeTitle";
+            this.lbl_LatitudeTitle.Size = new System.Drawing.Size(58, 16);
+            this.lbl_LatitudeTitle.TabIndex = 3;
+            this.lbl_LatitudeTitle.Text = "Latitude:";
+            // 
+            // lbl_Persecs
+            // 
+            this.lbl_Persecs.AutoSize = true;
+            this.lbl_Persecs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Persecs.Location = new System.Drawing.Point(115, 96);
+            this.lbl_Persecs.Name = "lbl_Persecs";
+            this.lbl_Persecs.Size = new System.Drawing.Size(58, 16);
+            this.lbl_Persecs.TabIndex = 2;
+            this.lbl_Persecs.Text = "Persecs";
+            // 
+            // lbl_Latitude
+            // 
+            this.lbl_Latitude.AutoSize = true;
+            this.lbl_Latitude.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Latitude.Location = new System.Drawing.Point(115, 63);
+            this.lbl_Latitude.Name = "lbl_Latitude";
+            this.lbl_Latitude.Size = new System.Drawing.Size(55, 16);
+            this.lbl_Latitude.TabIndex = 2;
+            this.lbl_Latitude.Text = "Latitude";
+            // 
+            // lbl_LongitudeTitle
+            // 
+            this.lbl_LongitudeTitle.AutoSize = true;
+            this.lbl_LongitudeTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_LongitudeTitle.Location = new System.Drawing.Point(13, 31);
+            this.lbl_LongitudeTitle.Name = "lbl_LongitudeTitle";
+            this.lbl_LongitudeTitle.Size = new System.Drawing.Size(70, 16);
+            this.lbl_LongitudeTitle.TabIndex = 1;
+            this.lbl_LongitudeTitle.Text = "Longitude:";
+            // 
+            // lbl_Longitude
+            // 
+            this.lbl_Longitude.AutoSize = true;
+            this.lbl_Longitude.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Longitude.Location = new System.Drawing.Point(115, 31);
+            this.lbl_Longitude.Name = "lbl_Longitude";
+            this.lbl_Longitude.Size = new System.Drawing.Size(67, 16);
+            this.lbl_Longitude.TabIndex = 0;
+            this.lbl_Longitude.Text = "Longitude";
+            // 
+            // lbl_Sector
+            // 
+            this.lbl_Sector.AutoSize = true;
+            this.lbl_Sector.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Sector.Location = new System.Drawing.Point(115, 127);
+            this.lbl_Sector.Name = "lbl_Sector";
+            this.lbl_Sector.Size = new System.Drawing.Size(47, 16);
+            this.lbl_Sector.TabIndex = 2;
+            this.lbl_Sector.Text = "Sector";
+            // 
+            // lbl_SectorTitle
+            // 
+            this.lbl_SectorTitle.AutoSize = true;
+            this.lbl_SectorTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_SectorTitle.Location = new System.Drawing.Point(13, 127);
+            this.lbl_SectorTitle.Name = "lbl_SectorTitle";
+            this.lbl_SectorTitle.Size = new System.Drawing.Size(50, 16);
+            this.lbl_SectorTitle.TabIndex = 3;
+            this.lbl_SectorTitle.Text = "Sector:";
+            // 
+            // grp_Hyperspace
+            // 
+            this.grp_Hyperspace.Location = new System.Drawing.Point(12, 193);
+            this.grp_Hyperspace.Name = "grp_Hyperspace";
+            this.grp_Hyperspace.Size = new System.Drawing.Size(549, 162);
+            this.grp_Hyperspace.TabIndex = 0;
+            this.grp_Hyperspace.TabStop = false;
+            this.grp_Hyperspace.Text = "HyperSpace Routes";
             // 
             // frmPlanetDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(642, 505);
+            this.ClientSize = new System.Drawing.Size(577, 505);
+            this.Controls.Add(this.grp_Position);
+            this.Controls.Add(this.grp_Hyperspace);
             this.Controls.Add(this.grp_GeneralInfo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPlanetDetails";
             this.Text = "frmPlanetDetails";
             this.grp_GeneralInfo.ResumeLayout(false);
             this.grp_GeneralInfo.PerformLayout();
+            this.grp_Position.ResumeLayout(false);
+            this.grp_Position.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -133,10 +254,20 @@ namespace OnBoardTree.DetailForms
 
         private System.Windows.Forms.GroupBox grp_GeneralInfo;
         private System.Windows.Forms.Label lbl_Name;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbl_FiliationTitle;
         private System.Windows.Forms.Label lbl_NativesTitle;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbl_Filiation;
         private System.Windows.Forms.Label lbl_Natives;
         private System.Windows.Forms.Label lbl_NameTitle;
+        private System.Windows.Forms.GroupBox grp_Position;
+        private System.Windows.Forms.Label lbl_PersecsTitle;
+        private System.Windows.Forms.Label lbl_LatitudeTitle;
+        private System.Windows.Forms.Label lbl_Persecs;
+        private System.Windows.Forms.Label lbl_Latitude;
+        private System.Windows.Forms.Label lbl_LongitudeTitle;
+        private System.Windows.Forms.Label lbl_Longitude;
+        private System.Windows.Forms.Label lbl_SectorTitle;
+        private System.Windows.Forms.Label lbl_Sector;
+        private System.Windows.Forms.GroupBox grp_Hyperspace;
     }
 }

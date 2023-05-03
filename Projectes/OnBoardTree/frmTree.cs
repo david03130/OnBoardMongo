@@ -28,19 +28,19 @@ namespace OnBoardTree
             string dbName = ConfigurationManager.AppSettings["MongoDataBaseName"].ToString();
             dbConfig = new MongoDbConfig(dbUrl, dbName);
 
-            LoadCollectionsDropdown();
+            CarregarDropdownCollections();
         }
 
-        private IDetailForm currentDetailForm;
+        private IFormDetall fromDetallActual;
 
-        enum CollectionName
+        enum NomsColleccions
         {
             Filiations,
             Planets,
             Regions
         }
 
-        private void LoadCollectionsDropdown()
+        private void CarregarDropdownCollections()
         {
             cmb_Collections.Items.Add("");
 
@@ -50,37 +50,37 @@ namespace OnBoardTree
             }
         }
 
-        private void LoadLateralTreeView(CollectionName collName)
+        private void CarregarTreeviewLateral(NomsColleccions collName)
         {
-            if (collName == CollectionName.Filiations)
+            if (collName == NomsColleccions.Filiations)
             {
-                MongoAccess<Filiations> filiations = new MongoAccess<Filiations>(dbConfig, CollectionName.Filiations.ToString());
+                MongoAccess<Filiations> filiations = new MongoAccess<Filiations>(dbConfig, NomsColleccions.Filiations.ToString());
                 filiations.SelectAll().ForEach(x => tree_Documents.Nodes.Add(x.Id.ToString(), x.description));
             }
-            else if (collName == CollectionName.Regions)
+            else if (collName == NomsColleccions.Regions)
             {
-                MongoAccess<StarWarsModels.Region> regions = new MongoAccess<StarWarsModels.Region>(dbConfig, CollectionName.Regions.ToString());
+                MongoAccess<StarWarsModels.Region> regions = new MongoAccess<StarWarsModels.Region>(dbConfig, NomsColleccions.Regions.ToString());
                 regions.SelectAll().ForEach(x => tree_Documents.Nodes.Add(x.Id.ToString(), x.nameRegion));
             }
-            else if (collName == CollectionName.Planets)
+            else if (collName == NomsColleccions.Planets)
             {
-                MongoAccess<Planet> planets = new MongoAccess<Planet>(dbConfig, CollectionName.Planets.ToString());
+                MongoAccess<Planet> planets = new MongoAccess<Planet>(dbConfig, NomsColleccions.Planets.ToString());
                 planets.SelectAll().ForEach(x => tree_Documents.Nodes.Add(x.Id.ToString(), x.name));
             }
         }
 
-        private void LoadDetailForm(CollectionName collName)
+        private void CarregarFormDetall(NomsColleccions collName)
         {
             Form form;
 
             pnl_Details.Controls.Clear();
 
             // TODO: Cambiar esto y poner los formularios pertinentes.
-            if (collName == CollectionName.Filiations)
+            if (collName == NomsColleccions.Filiations)
             {
                 form = new frmPlanetDetails();
             }
-            else if (collName == CollectionName.Regions)
+            else if (collName == NomsColleccions.Regions)
             {
                 form = new frmPlanetDetails();
             }
@@ -95,7 +95,7 @@ namespace OnBoardTree
             form.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             form.Show();
 
-            currentDetailForm = (IDetailForm)form;
+            fromDetallActual = (IFormDetall)form;
         }
 
         #region Designer Events
@@ -104,15 +104,15 @@ namespace OnBoardTree
             tree_Documents.Nodes.Clear();
             if (cmb_Collections.SelectedItem.ToString() != string.Empty)
             {
-                CollectionName selectedCollection = (CollectionName)Enum.Parse(typeof(CollectionName), cmb_Collections.SelectedItem.ToString());
-                LoadLateralTreeView(selectedCollection);
-                LoadDetailForm(selectedCollection);
+                NomsColleccions selectedCollection = (NomsColleccions)Enum.Parse(typeof(NomsColleccions), cmb_Collections.SelectedItem.ToString());
+                CarregarTreeviewLateral(selectedCollection);
+                CarregarFormDetall(selectedCollection);
             }
         }
 
         private void tree_Documents_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            currentDetailForm.LoadData(tree_Documents.SelectedNode.Name);
+            fromDetallActual.CarregarDades(tree_Documents.SelectedNode.Name);
         }
 
         #endregion

@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace OnBoardTree.DetailForms
 {
-    public partial class frmPlanetDetails : Form, IDetailForm
+    public partial class frmPlanetDetails : Form, IFormDetall
     {
         private readonly MongoDbConfig dbConfig;
         private readonly MongoAccess<Planet> bbdd;
@@ -28,13 +28,18 @@ namespace OnBoardTree.DetailForms
             bbdd = new MongoAccess<Planet>(dbConfig, "Planets");
         }
 
-        public void LoadData(string id)
+        public void CarregarDades(string id)
         {
             // Carregar les dades a partir del id.
             Planet planet = bbdd.SelectById(id);
 
             lbl_Name.Text = planet.name;
             lbl_Natives.Text = planet.natives;
+            lbl_Filiation.Text = planet.filiation;
+            lbl_Longitude.Text = planet.situation.Long;
+            lbl_Latitude.Text = planet.situation.lat;
+            lbl_Persecs.Text = planet.situation.parsecs;
+            lbl_Sector.Text = planet.sector;
         }
     }
 }
