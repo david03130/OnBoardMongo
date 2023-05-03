@@ -54,7 +54,7 @@ namespace OnBoardTree
         {
             if (selectedCol == NomsColeccions.Filiations)
             {
-                MongoAccess<Filiations> filiations = new MongoAccess<Filiations>(dbConfig, NomsColeccions.Filiations.ToString());
+                MongoAccess<Filiation> filiations = new MongoAccess<Filiation>(dbConfig, NomsColeccions.Filiations.ToString());
                 filiations.SelectAll().ForEach(x => tree_Documents.Nodes.Add(x.Id.ToString(), x.description));
             }
             else if (selectedCol == NomsColeccions.Regions)
@@ -75,10 +75,9 @@ namespace OnBoardTree
 
             pnl_Details.Controls.Clear();
 
-            // TODO: Cambiar esto y poner los formularios pertinentes.
             if (selectedCol == NomsColeccions.Filiations)
             {
-                form = new frmPlanetDetails();
+                form = new frmFiliationsDetails();
             }
             else if (selectedCol == NomsColeccions.Regions)
             {
